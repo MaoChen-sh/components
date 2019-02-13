@@ -27,6 +27,8 @@ import ScrollBox from "./components/ScrollBox";
 import Pagination from "./components/Pagination";
 import { CheckBox } from "./components/Form";
 
+import Header from "./components/Header";
+
 const Components = {
   Btn,
   Btn_1,
@@ -59,7 +61,9 @@ const Components = {
   ScrollBox,
   PopOut,
   Pagination,
-  CheckBox
+  CheckBox,
+
+  Header
 };
 export {
   Btn,
@@ -88,6 +92,7 @@ export {
   ScrollBox,
   PopOut,
   Pagination,
-  CheckBox
+  CheckBox,
+  Header
 };
 export default Components;

@@ -5,3 +5,6 @@
 /node_modules
 /umd
 npm-debug.log*
+[user]
+email=shao814724895@163.com
+name=boynext

@@ -9,6 +9,7 @@ import { Layout } from "@src";
 import styled from "styled-components";
 import { ReactComponent as Svg } from "@media/logo.svg";
 
+
 const Title = styled.h1`
   text-align: center;
   color: #fff;
@@ -57,8 +58,8 @@ class Demo extends Component {
             <Logo />
           
                 <Index type="text" />
-         
-            wowjoy-component Demo Home
+                
+                wowjoy-component Demo Home
           </Title>
         }
         center={<Routers />}
@@ -68,8 +69,8 @@ class Demo extends Component {
 }
 
 render(
-  <BrowserRouter>
-    <Demo />
-  </BrowserRouter>,
+   <BrowserRouter>
+   <Demo />
+   </BrowserRouter>,
   document.querySelector("#demo")
 );
