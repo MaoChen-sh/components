@@ -28,6 +28,7 @@ import Pagination from "./components/Pagination";
 import { CheckBox } from "./components/Form";
 
 import Header from "./components/Header";
+import Nav from "./components/Nav";
 
 const Components = {
   Btn,
@@ -63,7 +64,8 @@ const Components = {
   Pagination,
   CheckBox,
 
-  Header
+  Header,
+  Nav,
 };
 export {
   Btn,
@@ -93,6 +95,7 @@ export {
   PopOut,
   Pagination,
   CheckBox,
-  Header
+  Header,
+  Nav,
 };
 export default Components;

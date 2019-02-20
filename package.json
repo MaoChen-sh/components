@@ -62,6 +62,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.26.3",
-    "babel7-jest": "^1.0.1"
+    "babel7-jest": "^1.0.1",
+    "jquery": "^3.3.1"
   }
 }

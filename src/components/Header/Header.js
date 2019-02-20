@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
-// import PropTypes from "prop-types";
-import styled from "styled-components";
-import { keyframes } from 'styled-components';
+import PropTypes from "prop-types";
+import styled,{ keyframes } from "styled-components";
 import { ReactComponent as close } from "@media/nav_close.svg";
 import { ReactComponent as open } from "@media/nav_open.svg";
 import { ReactComponent as logout } from "@media/log_out.svg";
@@ -93,6 +92,7 @@ const User = styled.div`
   width:200px;
   height:120px;
   animation: ${props => props.display == 'block'?animation1:animation2} .4s ease forwards;
+  animation-delay:${props => props.display == 'block'?'0s':'1s'};
   transform-origin: 98% -20px 0px;
   box-shadow: rgba(132, 132, 132, 0.5) 0px 1px 4px 0px;
   display:${props => props.display};
@@ -180,44 +180,57 @@ class Header extends PureComponent {
     super()
     this.state = { left: false ,display:'none'}
   }
-  clickOn(){
+  clickOn = () => {
     this.setState({
       left: !this.state.left
     })
   }
-  handleMouseOver(){
+  handleMouseOver = () => {
     this.setState({
       display: 'block'
     })
   }
-  handleMouseOut(){
+  handleMouseOut = () => {
     this.setState({
       display: 'inline-block'
     })
   }
   render() {
+    const {
+      img,
+      title,
+      user,
+    } = this.props;
+
+    const {left,display} = this.state;
+
+    const TEXT = {
+      changePassword:'修改密码',
+      logout:'退出登录',
+    };
+
     return (
       <Area>
-        {this.state.left? <Close onClick={this.clickOn.bind(this)} />:<Open onClick={this.clickOn.bind(this)} />}
-        <Logo src={this.props.img}></Logo>
-        {this.props.title}
-        <Name onMouseOver={this.handleMouseOver.bind(this)}>{this.props.user.name.slice(-1)}
-          <User display={this.state.display} onMouseLeave={this.handleMouseOut.bind(this)}>
+        {left? <Close onClick={this.clickOn} />:<Open onClick={this.clickOn} />}
+        <Logo src={img}></Logo>
+        {title}
+        <Name onMouseOver={this.handleMouseOver}>{user.name.slice(-1)}
+          <User display={display} onMouseLeave={this.handleMouseOut}>
             <User1>
               <Namearea>
-                <Name1>{this.props.user.name.slice(-1)}</Name1>
-                <div>{this.props.user.name}(工号10086)</div>
+                <Name1>{user.name.slice(-1)}</Name1>
+                <div>{user.name}{user.number}</div>
               </Namearea>
               <Password>
                 <span>
                   <Passwordsvg></Passwordsvg>
-                  修改密码
+                  {TEXT.changePassword}
                 </span>
               </Password>
               <Layout>
                 <span>
                   <Layoutsvg></Layoutsvg>
-                  退出登录
+                  {TEXT.logout}
                 </span>
               </Layout>
             </User1>
@@ -227,5 +240,9 @@ class Header extends PureComponent {
     );
   }
 }
-
+Header.propTypes = {
+  img:PropTypes.string,
+  title:PropTypes.node,
+  user:PropTypes.object,
+};
 export default Header;
